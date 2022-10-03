@@ -35,7 +35,7 @@ public class CategoryServiceImpl implements CategoryService {
                     .map(categoria -> modelMapper.map(categoria, CategoryDto.class))
                     .collect(Collectors.toList());
             response.getCategoryResponse().setCategoryDto(categorias);
-            response.setMetadata("respuesta ok", "oo", "Respuesta Exitosa");
+            response.setMetadata("respuesta ok", "00", "Respuesta Exitosa");
         } catch (Exception e) {
             response.setMetadata(NOK, "-1", "error al consultar");
             e.getStackTrace();
@@ -54,6 +54,7 @@ public class CategoryServiceImpl implements CategoryService {
                 List<CategoryDto> lista = new ArrayList<>();
                 lista.add(modelMapper.map(category.get(), CategoryDto.class));
                 response.getCategoryResponse().setCategoryDto(lista);
+                response.setMetadata("respuesta ok", "00", "Respuesta Exitosa");
             } else {
                 response.setMetadata(NOK, "-1", "categoria no encontrada");
                 return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -78,6 +79,7 @@ public class CategoryServiceImpl implements CategoryService {
             if (categoryDtoGuardada != null) {
                 lista.add(modelMapper.map(categoryDtoGuardada, CategoryDto.class));
                 response.getCategoryResponse().setCategoryDto(lista);
+                response.setMetadata("respuesta ok", "00", "Respuesta Exitosa");
             } else {
                 response.setMetadata(NOK, "-1", "error al guardar categoria ");
                 return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
@@ -104,6 +106,7 @@ public class CategoryServiceImpl implements CategoryService {
                 if (categoryDtoGuardada != null) {
                     lista.add(modelMapper.map(categoryDtoGuardada, CategoryDto.class));
                     response.getCategoryResponse().setCategoryDto(lista);
+                    response.setMetadata("respuesta ok", "00", "Respuesta Exitosa");
                 } else {
                     response.setMetadata(NOK, "-1", "error al guardar categoria ");
                     return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
