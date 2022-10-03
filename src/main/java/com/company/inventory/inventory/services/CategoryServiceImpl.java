@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @Service
 public class CategoryServiceImpl implements CategoryService {
-    private final static String ERROR_CONSULTA = "error al consultar por id ";
+    private static final String ERROR_CONSULTA = "error al consultar por id ";
     private static final String NOK = "respuesta nok";
 
     private final CategoryDao categoryDao;
